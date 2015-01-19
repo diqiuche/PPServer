@@ -1,0 +1,9 @@
+D:\Code\PPServer\PPServer.DB\bin\Release\PPServer.DB.dll
+D:\Code\PPServer\PPServer.DB\bin\Release\PPServer.DB.pdb
+D:\Code\PPServer\PPServer.DB\bin\Release\MySql.Data.dll
+D:\Code\PPServer\PPServer.DB\bin\Release\System.Data.SQLite.dll
+D:\Code\PPServer\PPServer.DB\obj\Release\ResolveAssemblyReference.cache
+D:\Code\PPServer\PPServer.DB\obj\Release\PPServer.DB.dll
+D:\Code\PPServer\PPServer.DB\obj\Release\PPServer.DB.pdb
+D:\Code\PPServer\Release\PPServer.DB.dll
+D:\Code\PPServer\Release\PPServer.DB.pdb

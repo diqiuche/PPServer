@@ -1,0 +1,5 @@
+D:\Code\PPServer\Release\Plugin\PPServer.Plugin.DBService.dll
+D:\Code\PPServer\Release\Plugin\PPServer.Plugin.DBService.pdb
+D:\Code\PPServer\PPServer.Plugin.DBService\obj\Release\ResolveAssemblyReference.cache
+D:\Code\PPServer\PPServer.Plugin.DBService\obj\Release\PPServer.Plugin.DBService.dll
+D:\Code\PPServer\PPServer.Plugin.DBService\obj\Release\PPServer.Plugin.DBService.pdb

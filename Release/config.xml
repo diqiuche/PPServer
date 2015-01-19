@@ -1,0 +1,38 @@
+﻿<!-- edited with XMLSpy v2010 (http://www.altova.com) by MESMERiZE (MiZE) -->
+<ServerConfig>
+	<Databases CurrentDB="mysql">
+		<Oracle Enable="false" DBServer="Orcl" UserName="sy5" Password="sy5" OtherParams="Pooling=true;Max Pool Size=100;Min Pool Size=2;Connection Lifetime=3000;"/>
+		<MsSql Enable="false" DBServer="127.0.0.1" Port="1433" InitDB="CenterDB" UseWindowsAuthentication="true" />
+		<Access/>
+		<SQLite/>
+		<MySql Enable="true" DBServer="115.29.172.78" Port="3306" InitDB="upfdc" UserName="root" Password="genesysQ1W2E3R4" />
+	</Databases>
+	<Services ServerIP="localhost" HttpPort="4000" TcpPort="4001">
+		<Duplex Enable="true" Protocol="tcp" UseAuthentication="false">
+		</Duplex>
+		<Inner Enable="true" Protocol="http" UseAuthentication="false">
+			<FuncLib FilePath="PPServer.Plugin.DBService.dll" />
+		</Inner>
+		<Public Enable="true" Protocol="http" UseAuthentication="false" AuthFilePath="" AuthFileClassName="">
+			<Function Name="Activities" FilePath="Activities.Plugins.dll" ClassName="Activities.Plugins.ActService" />
+		</Public>
+		<File Enable="true" Protocol="http" UseAuthentication="false">
+		</File>
+		<TransportObjects>
+		</TransportObjects>
+	</Services>
+	<System>
+		<OfflineMessageTimeout>1</OfflineMessageTimeout>
+		<UserTypeSplitChar>@</UserTypeSplitChar>
+		<DebugMode>true</DebugMode>
+		<WriteLog>false</WriteLog>
+		<MapFolders>
+			<Folder Name="Log" CanDownload="false" Path="Log"/>
+			<Folder Name="Plugin" CanDownload="false" Path="Plugin"/>
+			<Folder Name="Update" CanDownload="true" Path="Update"/>
+			<Folder Name="Cache" CanDownload="true" Path="Files\Cache"/>
+			<Folder Name="Upload" CanDownload="true" Path="Files\Upload"/>
+			<Folder Name="Download" CanDownload="true" Path="Files\Download"/>
+		</MapFolders>
+	</System>	
+</ServerConfig>

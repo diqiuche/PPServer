@@ -1,0 +1,8 @@
+D:\Code\PPServer\PPServer.Service\bin\Release\PPServer.Service.dll
+D:\Code\PPServer\PPServer.Service\bin\Release\PPServer.Service.pdb
+D:\Code\PPServer\PPServer.Service\bin\Release\PPServer.Object.dll
+D:\Code\PPServer\PPServer.Service\bin\Release\ICSharpCode.SharpZipLib.dll
+D:\Code\PPServer\PPServer.Service\bin\Release\PPServer.Object.pdb
+D:\Code\PPServer\PPServer.Service\obj\Release\ResolveAssemblyReference.cache
+D:\Code\PPServer\PPServer.Service\obj\Release\PPServer.Service.dll
+D:\Code\PPServer\PPServer.Service\obj\Release\PPServer.Service.pdb

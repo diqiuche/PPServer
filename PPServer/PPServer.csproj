@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AA96BCB9-E5C0-4384-B57C-6D1A35792B16}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PPServer</RootNamespace>
+    <AssemblyName>PPServer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>PPServer.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PPServer.Common\PPServer.Common.csproj">
+      <Project>{0B2CB6F9-876F-4DDD-B66F-A3D841FEE17C}</Project>
+      <Name>PPServer.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PPServer.Config\PPServer.Config.csproj">
+      <Project>{94D0C68D-9D63-4B56-8E7D-651DC2FD62EE}</Project>
+      <Name>PPServer.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PPServer.DB\PPServer.DB.csproj">
+      <Project>{F67D6904-D393-4423-868C-7A55FAA173BD}</Project>
+      <Name>PPServer.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PPServer.DoService\PPServer.DoService.csproj">
+      <Project>{4C39EE9D-045A-4A85-94D3-5933F92365F0}</Project>
+      <Name>PPServer.DoService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PPServer.Object\PPServer.Object.csproj">
+      <Project>{4CF9A761-EF86-4C64-8CA8-2E2355711A65}</Project>
+      <Name>PPServer.Object</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PPServer.Service\PPServer.Service.csproj">
+      <Project>{65F4AB75-098C-43D0-9214-726C97C19B0C}</Project>
+      <Name>PPServer.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

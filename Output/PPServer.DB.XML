@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PPServer.DB</name>
+    </assembly>
+    <members>
+        <member name="M:PPServer.DB.Database.WriteToLog(System.String,System.Boolean)">
+            <summary>
+            写入日志
+            </summary>
+            <param name="Content">日志内容</param>
+            <param name="IsError">是否为错误日志</param>
+        </member>
+        <member name="M:PPServer.DB.Database.DealNullParam(System.Data.Common.DbParameter[]@)">
+            <summary>
+            处理空数据的参数
+            </summary>
+            <param name="Params">参数集合</param>
+        </member>
+        <member name="P:PPServer.DB.Database.DBName">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="P:PPServer.DB.Database.Inited">
+            <summary>
+            是否已初始化
+            </summary>
+        </member>
+        <member name="P:PPServer.DB.Database.ConnectionString">
+            <summary>
+            连接字符串
+            </summary>
+        </member>
+        <member name="T:PPServer.DB.IDatabase">
+            <summary>
+            数据库处理接口
+            </summary>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.Init(System.Object[])">
+            <summary>
+            初始化数据库连接
+            </summary>
+            <param name="ConnectionParams">连接参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.ExecuteSQL(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行SQL语句并返回影响行数
+            </summary>
+            <param name="SQL">SQL语句</param>
+            <param name="Params">参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.ExecuteReader(System.String,System.Data.Common.DbParameter[],System.Boolean)">
+            <summary>
+            执行SQL语句并返回Reader
+            </summary>
+            <param name="SQL">SQL语句</param>
+            <param name="Params">参数集合</param>
+            <param name="IsProcedure">是否为存储过程</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.ExecuteScalar(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行SQL语句并返回第一行第一个字段的数据值
+            </summary>
+            <param name="SQL">SQL语句</param>
+            <param name="Params">参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.ExecuteDataSet(System.String,System.Data.Common.DbParameter[],System.Boolean)">
+            <summary>
+            执行SQL语句并返回数据集
+            </summary>
+            <param name="SQL">SQL语句</param>
+            <param name="Params">参数集合</param>
+            <param name="IsProcedure">是否为存储过程</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.CreateParameter(System.String,System.Object)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="Name">参数名称</param>
+            <param name="Value">参数值</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.RunProcedureReader(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行存储过程并返回Reader
+            </summary>
+            <param name="ProcName">存储过程名</param>
+            <param name="Params">参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.RunProcedureDataSet(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行存储过程并返回数据集
+            </summary>
+            <param name="ProcName">存储过程名</param>
+            <param name="Params">参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.Insert(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            插入数据至表并返回影响的行数
+            </summary>
+            <param name="TableName">表名</param>
+            <param name="Params">参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.Update(System.String,System.Data.Common.DbParameter[],System.Data.Common.DbParameter[])">
+            <summary>
+            更新数据至表并返回影响的行数
+            </summary>
+            <param name="TableName">表名</param>
+            <param name="Params">参数集合</param>
+            <param name="WhereParams">查询条件参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.Delete(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            从表中删除数据至表并返回影响的行数
+            </summary>
+            <param name="TableName">表名</param>
+            <param name="Params">参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.SelectReader(System.String,System.String,System.Data.Common.DbParameter[],System.String)">
+            <summary>
+            以传参方式查询数据并返回Reader
+            </summary>
+            <param name="TableName">表名</param>
+            <param name="Fields">字段集合，以逗号分隔，当为null时等同于*</param>
+            <param name="WhereParams">查询条件参数集合</param>
+            <param name="Order">排序规则</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.SelectReader(System.String,System.String,System.String,System.String)">
+            <summary>
+            以字符串方式查询数据并返回Reader
+            </summary>
+            <param name="TableName">表名</param>
+            <param name="Fields">字段集合，以逗号分隔，当为null时等同于*</param>
+            <param name="Where">查询条件字符串</param>
+            <param name="Order">排序规则</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.SelectDataSet(System.String,System.String,System.Data.Common.DbParameter[],System.String)">
+            <summary>
+            以传参方式查询数据并返回数据集
+            </summary>
+            <param name="TableName">表名</param>
+            <param name="Fields">字段集合，以逗号分隔，当为null时等同于*</param>
+            <param name="WhereParams">查询条件参数集合</param>
+            <param name="Order">排序规则</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.IDatabase.SelectDataSet(System.String,System.String,System.String,System.String)">
+            <summary>
+            以字符串方式查询数据并返回数据集
+            </summary>
+            <param name="TableName">表名</param>
+            <param name="Fields">字段集合，以逗号分隔，当为null时等同于*</param>
+            <param name="Where">查询条件字符串</param>
+            <param name="Order">排序规则</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.MySQL.#ctor">
+            <summary>
+            构造MySQL数据库操作对象
+            </summary>
+        </member>
+        <member name="M:PPServer.DB.MySQL.Init(System.Object[])">
+            <summary>
+            初始化连接
+            </summary>
+            <param name="ConnectionParams">连接参数，0:数据库地址,1:端口号,2:用户名,3:密码,4:当前数据库</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.MySQL.CreateParameter(System.String,System.Object)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="Name">参数名称</param>
+            <param name="Value">参数值</param>
+            <returns></returns>
+        </member>
+        <member name="T:PPServer.DB.ServerDB">
+            <summary>
+            数据库操作类集合，请使用单例模式
+            </summary>
+        </member>
+        <member name="M:PPServer.DB.ServerDB.InitDBConnectionsFactory(System.String,System.Object[])">
+            <summary>
+            初始化数据库连接
+            </summary>
+            <param name="DBName">数据库名称</param>
+            <param name="InitParams">参数集合,请按以下格式传参，没有数据的参数请传null，
+            
+            A.MSSQL参数：0:数据库地址,1:端口号,2:是否使用本地身份验证,3:用户名,4:密码,5:当前数据库,6:其他参数
+            
+            B.SQLite参数：0.数据库文件地址，1.密码
+            
+            C.ORACLE参数：
+            </param>
+        </member>
+        <member name="M:PPServer.DB.ServerDB.SetCurrentDB(System.String)">
+            <summary>
+            设置当前默认的数据库连接
+            </summary>
+            <param name="CurrentDBName">当前数据库名称</param>
+        </member>
+        <member name="E:PPServer.DB.ServerDB.OnWriteLog">
+            <summary>
+            当需要写入日志时触发
+            </summary>
+        </member>
+        <member name="P:PPServer.DB.ServerDB.Instance">
+            <summary>
+            获得数据库实例
+            </summary>
+        </member>
+        <member name="P:PPServer.DB.ServerDB.CurrentDB">
+            <summary>
+            当前数据库连接
+            </summary>
+        </member>
+        <member name="P:PPServer.DB.ServerDB.DBList">
+            <summary>
+            数据库连接列表
+            </summary>
+        </member>
+        <member name="T:PPServer.DB.ServerDB.OnWriteLogDlg">
+            <summary>
+            日志触发代理
+            </summary>
+            <param name="Content">日志内容</param>
+            <param name="IsError">是否为错误日志</param>
+        </member>
+        <member name="M:PPServer.DB.SQLite.#ctor">
+            <summary>
+            构造SQLite数据库操作对象
+            </summary>
+        </member>
+        <member name="M:PPServer.DB.SQLite.Init(System.Object[])">
+            <summary>
+            初始化连接
+            </summary>
+            <param name="ConnectionParams">连接参数，0:数据库文件地址，1:密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.SQLite.CreateParameter(System.String,System.Object)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="Name">参数名称</param>
+            <param name="Value">参数值</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.MsSQL.Init(System.Object[])">
+            <summary>
+            初始化连接
+            </summary>
+            <param name="ConnectionParams">连接参数，0:数据库地址,1:端口号,2:是否使用本地身份验证,3:用户名,4:密码,5:当前数据库,6:其他参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.DB.MsSQL.CreateParameter(System.String,System.Object)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="Name">参数名称</param>
+            <param name="Value">参数值</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

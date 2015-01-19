@@ -1,0 +1,504 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PPServer.Client</name>
+    </assembly>
+    <members>
+        <member name="M:PPServer.Client.ProcessFile.DownloadFile(System.String,System.String,PPServer.Service.IFileService,System.String,System.String,System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Boolean,System.Boolean)">
+            <summary>
+            处理下载文件
+            </summary>
+            <param name="UserName">用户名</param>
+            <param name="Password">密码</param>
+            <param name="FileService">文件服务对象</param>
+            <param name="ServerFilePath">服务端文件路径</param>
+            <param name="LocalFilePath">本地文件路径</param>
+            <param name="AfterFunctionList">下载后执行的服务端任务集合</param>
+            <param name="BeforeFunctionList">下载之前执行的服务端任务集合</param>
+            <param name="ToCompress">是否压缩传输</param>
+            <param name="ToEncrypt">是否加密传输</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ProcessFile.UploadFile(System.String,System.String,PPServer.Service.IFileService,System.String,System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Boolean,System.Boolean)">
+            <summary>
+            处理上传文件
+            </summary>
+            <param name="UserName">用户名</param>
+            <param name="Password">密码</param>
+            <param name="FileService">文件服务对象</param>
+            <param name="LocalFilePath">本地文件路径</param>
+            <param name="AfterFunctionList">上传完毕后置执行函数集合</param>
+            <param name="BeforeFunctionList">上传之前前置执行函数集合</param>
+            <param name="ToCompress">是否压缩传输</param>
+            <param name="ToEncrypt">是否加密传输</param>
+        </member>
+        <member name="M:PPServer.Client.ProcessFile.SendFile(System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Boolean,PPServer.Service.IFileService,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            处理发送文件
+            </summary>
+            <param name="UserName">用户名</param>
+            <param name="Password">密码</param>
+            <param name="ToUserName">接收方用户名</param>
+            <param name="UserInfo">用户附加信息</param>
+            <param name="AfterFunctionList">用户接收后执行的服务端任务集合</param>
+            <param name="BeforeFunctionList">发送至服务器之前执行的服务端任务集合</param>
+            <param name="OfflineSave">是否发送离线文件</param>
+            <param name="FileService">文件服务对象</param>
+            <param name="LocalFilePath">本地文件路径</param>
+            <param name="ToCompress">是否压缩传输</param>
+            <param name="ToEncrypt">是否加密传输</param>
+        </member>
+        <member name="M:PPServer.Client.ProcessDuplex.ProcessReceivedFile(System.String,System.String,System.String,System.String,PPServer.Client.ServiceCenter,PPServer.Service.IFileService,PPServer.Object.DuplexMessage)">
+            <summary>
+            处理收到文件消息操作
+            </summary>
+            <param name="UserName">用户名</param>
+            <param name="Password">密码</param>
+            <param name="TempFolder">临时文件目录</param>
+            <param name="ServerPath">文件在服务器上的路径</param>
+            <param name="Center">服务中心</param>
+            <param name="FileService">文件服务</param>
+            <param name="Message">收到的双工消息</param>
+            <returns></returns>
+        </member>
+        <member name="T:PPServer.Client.ServiceCenter">
+            <summary>
+            服务中心，管理所有远程连接
+            </summary>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.#ctor(System.String,System.Int32,System.Int32,System.String,System.String,PPServer.Client.ServiceCenter.ServiceProtocol,PPServer.Client.ServiceCenter.ServiceProtocol,PPServer.Client.ServiceCenter.ServiceProtocol,PPServer.Client.ServiceCenter.ServiceProtocol)">
+            <summary>
+            实例化服务中心
+            </summary>
+            <param name="ServerAddr">服务器地址</param>
+            <param name="HttpPort">http服务端口号</param>
+            <param name="TcpPort">tcp服务端口号</param>
+            <param name="UserName">用户名</param>
+            <param name="Password">密码（加密后）</param>
+            <param name="EnableDuplexService">是否启用双工服务</param>
+            <param name="EnableInnerService">是否启用内部服务</param>
+            <param name="EnableFileService">是否启用文件服务</param>
+            <param name="EnablePublicService">是否启用外部服务</param>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.SetKnownTypes(System.Collections.Generic.List{System.Type})">
+            <summary>
+            设置通信服务已知类型集合
+            </summary>
+            <param name="Types">类型集合</param>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.SetUserInfo(System.String,System.String)">
+            <summary>
+            设置用户信息
+            </summary>
+            <param name="UserName">用户名</param>
+            <param name="Password">密码</param>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.SetDuplexUserInfo(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="DuplexUserName"></param>
+            <param name="DuplexPassword"></param>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.SetKnownTypes(System.String[])">
+            <summary>
+            设置通信服务已知类型所在文件集合
+            </summary>
+            <param name="FilePathCollection">文件路径集合</param>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.AddKnownTypes(System.Collections.Generic.List{System.Type})">
+            <summary>
+            添加通信服务已知类型集合
+            </summary>
+            <param name="Types">已知类型集合</param>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.AddKnownType(System.Type)">
+            <summary>
+            添加单个通信服务已知类型
+            </summary>
+            <param name="Type">已知类型</param>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.InitInnerService(System.String,System.Int32)">
+            <summary>
+            初始化内部服务
+            </summary>
+            <param name="ServerIP">服务器地址</param>
+            <param name="Port">端口号</param>
+            <returns>返回成功初始化句柄</returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.InitFileService(System.String,System.Int32)">
+            <summary>
+            初始化文件服务
+            </summary>
+            <param name="ServerIP">服务器地址</param>
+            <param name="Port">端口号</param>
+            <returns>返回成功初始化句柄</returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.ConnectDuplex(System.Boolean)">
+            <summary>
+            连接至双工服务
+            </summary>
+            <param name="ToAutoReconnect">是否自动重连接</param>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.DisconnectDuplex">
+            <summary>
+            手工断开双工服务
+            </summary>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.StopAutoReconnectDuplex">
+            <summary>
+            停止自动重连双工服务
+            </summary>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.GetOnlineUsers">
+            <summary>
+            获取在线用户列表，获取后由事件触发
+            </summary>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.DownloadFile(System.String,System.String,System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Boolean,System.Boolean)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="ServerFilePath">服务端文件路径</param>
+            <param name="LocalFilePath">本地文件路径</param>
+            <param name="AfterFunctionList">下载后执行的服务端任务集合</param>
+            <param name="BeforeFunctionList">下载之前执行的服务端任务集合</param>
+            <param name="ToCompress">是否压缩传输</param>
+            <param name="ToEncrypt">是否加密传输</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.UploadFile(System.String,System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Boolean,System.Boolean)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="AfterFunctionList">上传完毕后执行的服务端任务集合</param>
+            <param name="BeforeFunctionList">上传之前执行的服务端任务集合</param>
+            <param name="LocalFilePath">本地文件路径</param>
+            <param name="ToCompress">是否压缩传输</param>
+            <param name="ToEncrypt">是否加密传输</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.SendFile(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Collections.Generic.List{PPServer.Client.DoServerFunction},System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="LocalFilePath">本地文件路径</param>
+            <param name="ToUserName">接收方用户名</param>
+            <param name="UserData">用户附加数据</param>
+            <param name="AfterFunctionList">用户接收后执行的服务端任务集合</param>
+            <param name="BeforeFunctionList">发送至服务器之前执行的服务端任务集合</param>
+            <param name="OfflineSave">是否发送离线文件</param>
+            <param name="ToCompress">是否压缩传输</param>
+            <param name="ToEncrypt">是否加密传输</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.GetUpdateFiles(System.String,System.String)">
+            <summary>
+            获得更新文件集合
+            </summary>
+            <param name="ServerFolder">服务端更新目录名，根据此目录下所有</param>
+            <param name="LocalCompareFolder">本地待比较目录名，根据本地文件目录内所有文件比较待更新文件，如果为null则不比较直接下载所有文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.DoInnerService(System.String,System.Object[])">
+            <summary>
+            执行内部服务方法
+            </summary>
+            <param name="FunctionName">服务端方法名</param>
+            <param name="Paras">参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.DoInnerService(System.String,System.String,System.Object[])">
+            <summary>
+            执行内部服务方法
+            </summary>
+            <param name="FunctionName">服务端方法名</param>
+            <param name="PrivateFunctionName">私有方法名，可为空</param>
+            <param name="Paras">参数集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.DoInnerService(PPServer.Client.DoServerFunction)">
+            <summary>
+            执行内部服务方法
+            </summary>
+            <param name="Function">服务端方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.SendMessage(System.String,System.String,System.Boolean)">
+            <summary>
+            发送消息至指定用户或用户类型
+            </summary>
+            <param name="ToUser">接收用户或用户类型，若为用户类型，须以用户类型分隔符结尾</param>
+            <param name="Message">消息内容</param>
+            <param name="OfflineSave">用户不在线时，是否发送离线消息。ToUser为用户类型时，此参数不起作用，不发送离线消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.SendMessage(System.Collections.Generic.List{System.String},System.String,System.Boolean)">
+            <summary>
+            发送消息至指定多用户或用户类型集合
+            </summary>
+            <param name="ToUsers">接收用户或用户类型集合，若为用户类型，须以用户类型分隔符结尾</param>
+            <param name="Message">消息内容</param>
+            <param name="OfflineSave">用户不在线时，是否发送离线消息。ToUser为用户类型时，此参数不起作用，不发送离线消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.BroadcastMessage(System.String)">
+            <summary>
+            广播消息至所有在线用户
+            </summary>
+            <param name="Message">消息内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.SendCommand(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Boolean)">
+            <summary>
+            发送消息至指定用户或用户类型
+            </summary>
+            <param name="ToUser">接收用户或用户类型，若为用户类型，须以用户类型分隔符结尾</param>
+            <param name="Command">命令文本</param>
+            <param name="CommandData">命令数据</param>
+            <param name="OfflineSave">用户不在线时，是否发送离线消息。ToUser为用户类型时，此参数不起作用，不发送离线消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.SendCommand(System.Collections.Generic.List{System.String},System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Boolean)">
+            <summary>
+            发送命令至指定多用户或用户类型集合
+            </summary>
+            <param name="ToUsers">接收用户或用户类型集合，若为用户类型，须以用户类型分隔符结尾</param>
+            <param name="Command">命令文本</param>
+            <param name="CommandData">命令数据</param>
+            <param name="OfflineSave">用户不在线时，是否发送离线消息。ToUser为用户类型时，此参数不起作用，不发送离线消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.BroadcastCommand(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            广播命令至所有在线用户
+            </summary>
+            <param name="Command">命令文本</param>
+            <param name="CommandData">命令数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.WriteToLog(System.String,System.Boolean,System.Object[])">
+            <summary>
+            写入日志
+            </summary>
+            <param name="Content">日志内容</param>
+            <param name="IsError">是否为错误日志</param>
+            <param name="Paras">参数集合</param>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.GetOSConnected">
+            <summary>
+            得到操作系统连接状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Client.ServiceCenter.Dispose">
+            <summary>
+            系统退出时销毁本对象
+            </summary>
+        </member>
+        <member name="P:PPServer.Client.ServiceCenter.FileService">
+            <summary>
+            文件服务
+            </summary>
+        </member>
+        <member name="P:PPServer.Client.ServiceCenter.IsOnline">
+            <summary>
+            获取双工服务是否在线
+            </summary>
+        </member>
+        <member name="P:PPServer.Client.ServiceCenter.OnlineUsers">
+            <summary>
+            获取在线用户列表
+            </summary>
+        </member>
+        <member name="P:PPServer.Client.ServiceCenter.IsAutoReconnectDuplex">
+            <summary>
+            是否自动重连双工服务
+            </summary>
+        </member>
+        <member name="P:PPServer.Client.ServiceCenter.TEMP_PATH">
+            <summary>
+            获取或设置临时文件目录
+            </summary>
+        </member>
+        <member name="P:PPServer.Client.ServiceCenter.ReconnectDuplexTimeGap">
+            <summary>
+            重新连接的时间间隔（秒）
+            </summary>
+        </member>
+        <member name="E:PPServer.Client.ServiceCenter.OnWriteLog">
+            <summary>
+            当需要写入日志时触发
+            </summary>
+        </member>
+        <member name="E:PPServer.Client.ServiceCenter.OnReceiveTextMessage">
+            <summary>
+            收到文本消息时触发
+            </summary>
+        </member>
+        <member name="E:PPServer.Client.ServiceCenter.OnReceiveCommandMessage">
+            <summary>
+            收到命令消息时触发
+            </summary>
+        </member>
+        <member name="E:PPServer.Client.ServiceCenter.OnUpdateOnlineUsers">
+            <summary>
+            更新在线用户状态时触发
+            </summary>
+        </member>
+        <member name="E:PPServer.Client.ServiceCenter.OnReceivedFile">
+            <summary>
+            收到推送的文件时触发
+            </summary>
+        </member>
+        <member name="E:PPServer.Client.ServiceCenter.OnProgress">
+            <summary>
+            反馈传输进度时触发
+            </summary>
+        </member>
+        <member name="E:PPServer.Client.ServiceCenter.OnDuplexOnlineChanged">
+            <summary>
+            双工在线状态改变时触发
+            </summary>
+        </member>
+        <member name="T:PPServer.Client.ServiceCenter.ServiceProtocol">
+            <summary>
+            服务使用协议
+            </summary>
+        </member>
+        <member name="F:PPServer.Client.ServiceCenter.ServiceProtocol.Http">
+            <summary>
+            使用http协议通信
+            </summary>
+        </member>
+        <member name="F:PPServer.Client.ServiceCenter.ServiceProtocol.Tcp">
+            <summary>
+            使用tcp协议通信
+            </summary>
+        </member>
+        <member name="F:PPServer.Client.ServiceCenter.ServiceProtocol.Disabled">
+            <summary>
+            服务不启动
+            </summary>
+        </member>
+        <member name="T:PPServer.Client.ServiceCenter.OnWriteLogHandler">
+            <summary>
+            日志触发代理
+            </summary>
+            <param name="Content">日志内容</param>
+            <param name="IsError">是否为错误日志</param>
+        </member>
+        <member name="T:PPServer.Client.ServiceCenter.OnReceiveTextHandler">
+            <summary>
+            收到文本消息事件句柄
+            </summary>
+            <param name="FromUser">发送方用户</param>
+            <param name="TextMessage">文本消息内容</param>
+            <param name="MessageTime">消息发送时间</param>
+            <param name="IsBroadcast">是否为广播消息</param>
+        </member>
+        <member name="T:PPServer.Client.ServiceCenter.OnReceiveCommandHandler">
+            <summary>
+            收到命令消息事件句柄
+            </summary>
+            <param name="FromUser">发送方用户</param>
+            <param name="CommandText">命令文本</param>
+            <param name="CommandData">命令数据</param>
+            <param name="MessageTime">消息发送时间</param>
+            <param name="IsBroadcast">是否为广播消息</param>
+        </member>
+        <member name="T:PPServer.Client.ServiceCenter.OnlineUserEventHandler">
+            <summary>
+            在线用户更新代理
+            </summary>
+            <param name="Users">在线用户列表</param>
+        </member>
+        <member name="T:PPServer.Client.ServiceCenter.OnReceivedFileHandler">
+            <summary>
+            收到文件代理
+            </summary>
+            <param name="FromUser">发送用户</param>
+            <param name="FilePath">文件路径</param>
+            <param name="SendTime">发送文件时间</param>
+            <param name="UserData">发送过来的用户数据</param>
+        </member>
+        <member name="T:PPServer.Client.ServiceCenter.OnProgressHandler">
+            <summary>
+            进度反馈代理
+            </summary>
+            <param name="FileName">正在处理的文件名</param>
+            <param name="Progress">处理进度</param>
+            <param name="TransportStatus">处理状态</param>
+        </member>
+        <member name="T:PPServer.Client.ServiceCenter.OnDuplexOnlineChangedHandler">
+            <summary>
+            双工状态改变代理
+            </summary>
+            <param name="IsOnline">状态是否在线</param>
+        </member>
+        <member name="T:PPServer.Client.ServiceCenter.OnUpdateFilesFinished">
+            <summary>
+            更新文件完毕时触发
+            </summary>
+            <param name="FileFolder"></param>
+        </member>
+        <member name="T:PPServer.Client.DoServerFunction">
+            <summary>
+            执行服务端方法
+            </summary>
+        </member>
+        <member name="M:PPServer.Client.DoServerFunction.#ctor(System.String,System.Object[])">
+            <summary>
+            构造服务端执行方法类
+            </summary>
+            <param name="FunctionName">服务端配置的方法名</param>
+            <param name="Paras">传输的参数集合</param>
+        </member>
+        <member name="M:PPServer.Client.DoServerFunction.#ctor(System.String,System.String,System.Object[])">
+            <summary>
+            构造服务端执行方法类
+            </summary>
+            <param name="FunctionName">服务端配置的方法名</param>
+            <param name="PrivateFunctionName">私有方法名</param>
+            <param name="Paras">传输的参数集合</param>
+        </member>
+        <member name="M:PPServer.Client.DoServerFunction.ToString">
+            <summary>
+            返回当前对象的字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:PPServer.Client.DoServerFunction.FunctionName">
+            <summary>
+            设置或获取服务端配置的方法名
+            </summary>
+        </member>
+        <member name="P:PPServer.Client.DoServerFunction.PrivateFunctionName">
+            <summary>
+            设置或获取私有方法名
+            </summary>
+        </member>
+        <member name="P:PPServer.Client.DoServerFunction.Paras">
+            <summary>
+            设置或获取传输的参数集合
+            </summary>
+        </member>
+        <member name="M:PPServer.Client.DuplexListener.OnReceive(PPServer.Object.DuplexMessage)">
+            <summary>
+            收到消息
+            </summary>
+            <param name="Message">消息</param>
+        </member>
+        <member name="E:PPServer.Client.DuplexListener.OnReceiveMessage">
+            <summary>
+            收到消息时触发
+            </summary>
+        </member>
+        <member name="T:PPServer.Client.DuplexListener.MessageEventHandler">
+            <summary>
+            消息事件句柄
+            </summary>
+            <param name="Message"></param>
+        </member>
+    </members>
+</doc>

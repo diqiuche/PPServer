@@ -1,0 +1,14 @@
+D:\Code\PPServer\PPServer.Config\bin\Release\PPServer.Config.dll
+D:\Code\PPServer\PPServer.Config\bin\Release\PPServer.Config.pdb
+D:\Code\PPServer\PPServer.Config\bin\Release\PPServer.Common.dll
+D:\Code\PPServer\PPServer.Config\bin\Release\PPServer.Interface.dll
+D:\Code\PPServer\PPServer.Config\bin\Release\PPServer.Object.dll
+D:\Code\PPServer\PPServer.Config\bin\Release\ICSharpCode.SharpZipLib.dll
+D:\Code\PPServer\PPServer.Config\bin\Release\PPServer.Common.pdb
+D:\Code\PPServer\PPServer.Config\bin\Release\PPServer.Interface.pdb
+D:\Code\PPServer\PPServer.Config\bin\Release\PPServer.Object.pdb
+D:\Code\PPServer\PPServer.Config\obj\Release\ResolveAssemblyReference.cache
+D:\Code\PPServer\PPServer.Config\obj\Release\PPServer.Config.dll
+D:\Code\PPServer\PPServer.Config\obj\Release\PPServer.Config.pdb
+D:\Code\PPServer\Release\PPServer.Config.dll
+D:\Code\PPServer\Release\PPServer.Config.pdb

@@ -1,0 +1,844 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PPServer.Object</name>
+    </assembly>
+    <members>
+        <member name="T:PPServer.Object.FileInfoRequest">
+            <summary>
+            文件上传消息
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.FileInfoRequest.#ctor">
+            <summary>
+            构造文件消息
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.FileInfoRequest.#ctor(System.String)">
+            <summary>
+            构造文件传输消息
+            </summary>
+            <param name="FilePath">文件路径</param>
+        </member>
+        <member name="M:PPServer.Object.FileInfoRequest.GetFileVersion(System.String)">
+            <summary>
+            得到文件版本号
+            </summary>
+            <param name="FilePath">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="P:PPServer.Object.FileInfoRequest.MessageId">
+            <summary>
+            获取消息唯一标示
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileInfoRequest.MessageTime">
+            <summary>
+            获取消息创建时间
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileInfoRequest.FileName">
+            <summary>
+            获取文件名
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileInfoRequest.FileFolder">
+            <summary>
+            获取文件路径文件夹
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileInfoRequest.FileVersion">
+            <summary>
+            获取文件版本号
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileInfoRequest.Length">
+            <summary>
+            获取文件长度(Byte)
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileInfoRequest.ModifyTime">
+            <summary>
+            获取文件修改时间
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileInfoRequest.CreateTime">
+            <summary>
+            获取文件创建时间
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileInfoRequest.VerifyCode">
+            <summary>
+            获取文件校验码
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.TransportStream">
+            <summary>
+            自定义的读取流
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.#ctor(System.String)">
+            <summary>
+            从文件生成只读流
+            </summary>
+            <param name="FileName">文件路径名称</param>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.#ctor(System.IO.FileStream,System.String)">
+            <summary>
+            直接使用现有文件流
+            </summary>
+            <param name="FileStream">现有文件流</param>
+            <param name="FileName">文件路径名称</param>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            从自定义流读取指定长度到array，但是不超过初始化时设定的长度。
+            </summary>
+            <returns>读取的字节数</returns>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.Flush">
+            <summary>
+            强制输出
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            流查找
+            </summary>
+            <param name="offset">偏移量</param>
+            <param name="origin">参考点</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.SetLength(System.Int64)">
+            <summary>
+            设置流字节长度
+            </summary>
+            <param name="value">长度</param>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            写入流数据
+            </summary>
+            <param name="buffer">缓存区</param>
+            <param name="offset">偏移量</param>
+            <param name="count">数量</param>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.Close">
+            <summary>
+            关闭流
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.Dispose(System.Boolean)">
+            <summary>
+            销毁对象
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.CompressFile(System.IO.Stream,System.String,PPServer.Object.TransportStream.CompressLevel)">
+            <summary>
+            压缩文件流
+            </summary>
+            <param name="OrgFileData">原文件流</param>
+            <param name="ZipFileName">压缩后临时文件名</param>
+            <param name="CompressLevel">压缩级别</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.DeCompressFile(System.IO.Stream,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            解压缩文件流
+            </summary>
+            <param name="ZipFileData">压缩文件流</param>
+            <param name="ZipFileName">压缩文件名</param>
+            <param name="NewFileName">解压文件名</param>
+            <param name="VerifyCode">校验码</param>
+            <param name="DelZipFile">是否删除原压缩文件</param>
+            <param name="VerifyOriginalFile">是否校验原始文件，否则校验压缩文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.GetFileVerifyCode(System.IO.Stream)">
+            <summary>
+            获取文件校验码
+            </summary>
+            <param name="FileData">文件内容流</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.TransportStream.GetFileVerifyCode(System.String)">
+            <summary>
+            获取文件校验码
+            </summary>
+            <param name="FilePath">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="E:PPServer.Object.TransportStream.OnReadCompleted">
+            <summary>
+            读取完毕事件，参数为当前流的文件名
+            </summary>
+        </member>
+        <member name="E:PPServer.Object.TransportStream.OnReadProgress">
+            <summary>
+            反馈读取进度，返回值为当前进度值
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.TransportStream.CanRead">
+            <summary>
+            流是否可读
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.TransportStream.CanSeek">
+            <summary>
+            流是否可查找
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.TransportStream.CanWrite">
+            <summary>
+            流是否可写
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.TransportStream.Length">
+            <summary>
+            自定义流剩余长度。
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.TransportStream.Position">
+            <summary>
+            自定义流位置，返回原始流的位置
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.TransportStream.CompressLevel">
+            <summary>
+            文件压缩级别
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.TransportStream.CompressLevel.High">
+            <summary>
+            高压缩比，压缩率高，压缩时间长
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.TransportStream.CompressLevel.Normal">
+            <summary>
+            普通压缩比，压缩率与压缩时间均衡
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.TransportStream.CompressLevel.Low">
+            <summary>
+            低压缩比，压缩率低，压缩时间短
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.TransportEventArgs">
+            <summary>
+            定义传输流的传递参数
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.TransportEventArgs.#ctor(System.IO.Stream,System.String)">
+            <summary>
+            构造传输的数据
+            </summary>
+            <param name="Sender">原始流</param>
+            <param name="FileName">文件名</param>
+        </member>
+        <member name="P:PPServer.Object.TransportEventArgs.Sender">
+            <summary>
+            原始流
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.TransportEventArgs.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.ReturnResult">
+            <summary>
+            定义返回数据
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.ObjectBase">
+            <summary>
+            基类
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.ObjectBase.SaveObjToXML(System.String)">
+            <summary>
+            序列化对象到XML文件
+            </summary>
+            <param name="FilePath">文件路径</param>
+        </member>
+        <member name="M:PPServer.Object.ObjectBase.TurnXmlFromObj">
+            <summary>
+            序列化对象到内存流
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.ObjectBase.SaveDataContractToXML(System.String)">
+            <summary>
+            DataContract对象序列化到XML
+            </summary>
+            <param name="FilePath">文件路径</param>
+        </member>
+        <member name="M:PPServer.Object.ObjectBase.SaveObjToFile(System.String)">
+            <summary>
+            用二进制流序列化对象到文件
+            </summary>
+            <param name="FilePath">文件路径</param>
+        </member>
+        <member name="M:PPServer.Object.ObjectBase.LoadObjFromXML``1(System.String)">
+            <summary>
+            XML到反序列化到对象
+            </summary>
+            <typeparam name="T">反序列化类</typeparam>
+            <param name="FilePath">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.ObjectBase.LoadObjFromXML``1(System.IO.MemoryStream)">
+            <summary>
+            XML到反序列化到对象
+            </summary>
+            <typeparam name="T">反序列化类</typeparam>
+            <param name="mstream">内存流</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.ObjectBase.LoadDataContractFromXML``1(System.String)">
+            <summary>
+            XML到反序列化到DataContract
+            </summary>
+            <typeparam name="T">输出类型</typeparam>
+            <param name="FilePath">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.ObjectBase.LoadObjFromFile``1(System.String)">
+            <summary>
+            从文件反序列化到对象
+            </summary>
+            <typeparam name="T">输出的类型</typeparam>
+            <param name="FilePath">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.ObjectBase.GetDataTableFromClass``1(System.Collections.Generic.List{``0})">
+            <summary>
+            从对象列表生成数据表
+            </summary>
+            <typeparam name="T">数据源类</typeparam>
+            <param name="objs">对象列表</param>
+            <returns></returns>
+        </member>
+        <member name="F:PPServer.Object.ReturnResult.ExeCode">
+            <summary>
+            获取执行后返回代码，1为成功，0为系统性错误,负数为业务处理失败
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.ReturnResult.ExeInfo">
+            <summary>
+            获取执行后返回信息
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.ReturnResult.ExeTimeSpan">
+            <summary>
+            获取执行时长（毫秒）
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.ReturnResult.ServerTime">
+            <summary>
+            获取执行结束服务端时间
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.ReturnResult.TransportSize">
+            <summary>
+            获取传输数据大小
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.ReturnResult.OriginalSize">
+            <summary>
+            获取原始数据大小
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.ReturnResult.VerifyCode">
+            <summary>
+            获取数据校验码
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.ReturnResult.ExeResult">
+            <summary>
+            执行结果，key为返回标志，value为返回内容
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.DuplexMessage">
+            <summary>
+            双工服务通讯消息
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.DuplexMessage.#ctor(System.String,System.Collections.Generic.List{System.String},PPServer.Object.DuplexMessage.MessageTypes,PPServer.Object.DuplexMessage.CommandTypes,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Boolean)">
+            <summary>
+            构造发送到指定用户的双工服务消息
+            </summary>
+            <param name="FromUser">发送方用户名</param>
+            <param name="ToUsers">接收方用户名集合</param>
+            <param name="MessageType">双工消息类型</param>
+            <param name="CommandType">命令类型</param>
+            <param name="MessageText">消息文本</param>
+            <param name="MessageData">发送的数据内容</param>
+            <param name="OfflineSave">是否保存离线消息</param>
+        </member>
+        <member name="M:PPServer.Object.DuplexMessage.#ctor(System.String,PPServer.Object.DuplexMessage.CommandTypes,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            构造广播命令消息
+            </summary>
+            <param name="FromUser">发送方用户名</param>
+            <param name="CommandType">命令类型</param>
+            <param name="CommandText">命令文本</param>
+            <param name="CommandData">命令数据</param>
+        </member>
+        <member name="M:PPServer.Object.DuplexMessage.#ctor(System.String,System.Collections.Generic.List{System.String},PPServer.Object.DuplexMessage.CommandTypes,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Boolean)">
+            <summary>
+            构造发送至指定用户的命令消息
+            </summary>
+            <param name="FromUser">发送方用户名</param>
+            <param name="ToUsers">接收方用户名集合</param>
+            <param name="CommandType">命令类型</param>
+            <param name="CommandText">命令文本</param>
+            <param name="CommandData">命令数据</param>
+            <param name="OfflineSave">是否保存离线消息</param>
+        </member>
+        <member name="M:PPServer.Object.DuplexMessage.#ctor(System.String,System.String)">
+            <summary>
+            构造广播文本消息
+            </summary>
+            <param name="FromUser">发送方用户名</param>
+            <param name="Text">广播文本</param>
+        </member>
+        <member name="M:PPServer.Object.DuplexMessage.#ctor(System.String,System.Collections.Generic.List{System.String},System.String,System.Boolean)">
+            <summary>
+            构造发送至指定用户的文本消息
+            </summary>
+            <param name="FromUser">发送方用户名</param>
+            <param name="ToUsers">接收方用户名集合</param>
+            <param name="Text">发送文本</param>
+            <param name="OfflineSave">是否保存离线消息</param>
+        </member>
+        <member name="M:PPServer.Object.DuplexMessage.Clone(System.String)">
+            <summary>
+            克隆所有数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.DuplexMessage.ToString">
+            <summary>
+            返回当前对象的字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PPServer.Object.DuplexMessage.AddAfterFunction(System.String,System.Object[])">
+            <summary>
+            添加事后执行方法
+            </summary>
+            <param name="FunctionName">方法名</param>
+            <param name="Param">参数集合</param>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.MessageId">
+            <summary>
+            获取消息唯一标示
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.MessageTime">
+            <summary>
+            获取消息创建时间
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.FromUser">
+            <summary>
+            获取发送方用户名
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.ToUsers">
+            <summary>
+            获取接收方用户名集合，当为广播消息时，不处理此属性
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.IsBroadcast">
+            <summary>
+            获取是否为广播消息
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.OfflineSave">
+            <summary>
+            获取是否保存离线消息
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.MessageType">
+            <summary>
+            获取消息类型
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.CommandType">
+            <summary>
+            获取消息类型
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.MessageData">
+            <summary>
+            获取或设置消息数据，需可被序列化
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.AfterFunctions">
+            <summary>
+            获取上传或下载完毕服务端执行方法，key为方法名，value为参数集合，object须为可序列化对象
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.DuplexMessage.MessageText">
+            <summary>
+            获取或设置消息文本内容
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.DuplexMessage.MessageTypes">
+            <summary>
+            双工消息类型
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.DuplexMessage.MessageTypes.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.DuplexMessage.MessageTypes.Command">
+            <summary>
+            命令
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.DuplexMessage.CommandTypes">
+            <summary>
+            命令类型
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.DuplexMessage.CommandTypes.GET_FILE">
+            <summary>
+            获得文件
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.DuplexMessage.CommandTypes.GET_ONLINE_USERS">
+            <summary>
+            获得当前在线用户
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.DuplexMessage.CommandTypes.LOGOUT">
+            <summary>
+            强制登出
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.DuplexMessage.CommandTypes.CUSTOMER">
+            <summary>
+            自定义
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.FileMessageRequest">
+            <summary>
+            文件服务请求消息
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.FileMessageRequest.#ctor(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            构造文件请求消息
+            </summary>
+            <param name="UserName">用户名</param>
+            <param name="Password">密码</param>
+            <param name="FilePath">请求的文件路径</param>
+            <param name="ToCompress">是否压缩传输</param>
+            <param name="ToEncrypt">是否加密传输</param>
+            <param name="ToDeleteAfterDownloaded">设置或获取下载完毕后删除原文件</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessageRequest.AddAfterFunction(System.String,System.Object[])">
+            <summary>
+            添加事后执行方法
+            </summary>
+            <param name="FunctionName">方法名</param>
+            <param name="Param">参数集合</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessageRequest.AddBeforeFunction(System.String,System.Object[])">
+            <summary>
+            添加事前执行方法
+            </summary>
+            <param name="FunctionName">方法名</param>
+            <param name="Param">参数集合</param>
+        </member>
+        <member name="P:PPServer.Object.FileMessageRequest.MessageId">
+            <summary>
+            获取消息唯一标示
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessageRequest.MessageTime">
+            <summary>
+            获取消息创建时间
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessageRequest.ServerMapPath">
+            <summary>
+            设置或获取服务器文件路径
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessageRequest.UserName">
+            <summary>
+            设置或获取用户名
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessageRequest.Password">
+            <summary>
+            设置或获取密码
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessageRequest.ToCompress">
+            <summary>
+            设置或获取是否压缩传输
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessageRequest.ToEncrypt">
+            <summary>
+            设置或获取是否加密传输
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessageRequest.ToDeleteAfterDownloaded">
+            <summary>
+            设置或获取下载完毕后删除原文件
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessageRequest.AfterFunctions">
+            <summary>
+            获取上传或下载完毕服务端执行方法，key为方法名，value为参数集合，object须为可序列化对象
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessageRequest.BeforeFunctions">
+            <summary>
+            获取上传或下载之前服务端执行方法，key为方法名，value为参数集合，object须为可序列化对象
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.FileMessage">
+            <summary>
+            文件上传消息
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.FileMessage.TEMPFILE_SUFFIX">
+            <summary>
+            临时文件后缀名
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.FileMessage.BUFFER_SIZE">
+            <summary>
+            读取数据时本地缓存大小
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.FileMessage.Result">
+            <summary>
+            执行返回结果
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.#ctor">
+            <summary>
+            构造文件消息
+            </summary>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            构造文件传输消息
+            </summary>
+            <param name="FilePath">文件路径</param>
+            <param name="ToCompress">是否压缩传输</param>
+            <param name="ToEncrypt">是否加密传输</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.FileMessage_OnReadProgress(System.Double)">
+            <summary>
+            向外爆破上传处理事件
+            </summary>
+            <param name="Progress">读取进度</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.ReportProgress(System.Double,PPServer.Object.FileMessage.TransportStatus)">
+            <summary>
+            反馈处理进度
+            </summary>
+            <param name="Progress">进度</param>
+            <param name="Status">状态</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.FileMessage_ReadCompleted(System.Object,PPServer.Object.TransportEventArgs)">
+            <summary>
+            当读取完文件后，删除压缩文件
+            </summary>
+            <param name="sender">文件流</param>
+            <param name="e">文件路径</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.AddAfterFunction(System.String,System.Object[])">
+            <summary>
+            添加事后执行方法
+            </summary>
+            <param name="FunctionName">方法名</param>
+            <param name="Param">参数集合</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.AddBeforeFunction(System.String,System.Object[])">
+            <summary>
+            添加事前执行方法
+            </summary>
+            <param name="FunctionName">方法名</param>
+            <param name="Param">参数集合</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.AddSystemInfo(System.String,System.Object)">
+            <summary>
+            添加系统信息
+            </summary>
+            <param name="InfoName">信息名称</param>
+            <param name="Info">信息内容</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.AddUserInfo(System.String,System.Object)">
+            <summary>
+            添加用户信息
+            </summary>
+            <param name="InfoName">信息名称</param>
+            <param name="Info">信息内容</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.CopyStream(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            拷贝数据流至数据流
+            </summary>
+            <param name="FromStream">源数据流</param>
+            <param name="ToStream">目的数据流</param>
+        </member>
+        <member name="M:PPServer.Object.FileMessage.CopyStream(System.IO.Stream,System.String,System.Int64)">
+            <summary>
+            拷贝数据流至文件
+            </summary>
+            <param name="FromStream">源数据流</param>
+            <param name="ToFileName">目的文件</param>
+            <param name="FileLenth">源流长度</param>
+            <returns>返回目的文件流</returns>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.MessageId">
+            <summary>
+            获取消息唯一标示
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.MessageTime">
+            <summary>
+            获取消息创建时间
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.FileName">
+            <summary>
+            获取文件名
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.FilePath">
+            <summary>
+            获取文件路径
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.Length">
+            <summary>
+            获取文件长度(Byte)
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.TransLength">
+            <summary>
+            获取传输文件长度(Byte)
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.ModifyTime">
+            <summary>
+            获取文件修改时间
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.CreateTime">
+            <summary>
+            获取文件创建时间
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.VerifyCode">
+            <summary>
+            获取文件校验码
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.IsCompressed">
+            <summary>
+            是否被压缩
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.IsEncrypted">
+            <summary>
+            是否被加密
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.AfterFunctions">
+            <summary>
+            获取上传或下载完毕服务端执行方法，key为方法名，value为参数集合，object须为可序列化对象
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.BeforeFunctions">
+            <summary>
+            获取上传或下载之前服务端执行方法，key为方法名，value为参数集合，object须为可序列化对象
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.SystemInfo">
+            <summary>
+            系统信息
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.UserInfo">
+            <summary>
+            用户数据信息
+            </summary>
+        </member>
+        <member name="P:PPServer.Object.FileMessage.FileData">
+            <summary>
+            获取文件内容流
+            </summary>
+        </member>
+        <member name="E:PPServer.Object.FileMessage.OnReadProgress">
+            <summary>
+            反馈读取进度
+            </summary>
+        </member>
+        <member name="E:PPServer.Object.FileMessage.OnWriteProgress">
+            <summary>
+            反馈写入本地文件进度
+            </summary>
+        </member>
+        <member name="E:PPServer.Object.FileMessage.OnReadCompleted">
+            <summary>
+            当读取完成后触发
+            </summary>
+        </member>
+        <member name="T:PPServer.Object.FileMessage.ReportProgressHandler">
+            <summary>
+            反馈处理进度句柄
+            </summary>
+            <param name="FileInfo">文件消息</param>
+            <param name="FileName">文件名</param>
+            <param name="Progress">处理进度</param>
+            <param name="CurrentStatus">当前处理状态</param>
+        </member>
+        <member name="T:PPServer.Object.FileMessage.ReportCompleteHandler">
+            <summary>
+            反馈处理完成句柄
+            </summary>
+            <param name="FileInfo">文件消息</param>
+            <param name="FileName">文件名</param>
+        </member>
+        <member name="T:PPServer.Object.FileMessage.TransportStatus">
+            <summary>
+            传输状态
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.FileMessage.TransportStatus.Compressing">
+            <summary>
+            压缩中
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.FileMessage.TransportStatus.DeCompressing">
+            <summary>
+            解压中
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.FileMessage.TransportStatus.Uploading">
+            <summary>
+            上传中
+            </summary>
+        </member>
+        <member name="F:PPServer.Object.FileMessage.TransportStatus.Downloading">
+            <summary>
+            下载中
+            </summary>
+        </member>
+    </members>
+</doc>

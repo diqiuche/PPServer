@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C39EE9D-045A-4A85-94D3-5933F92365F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PPServer.DoService</RootNamespace>
+    <AssemblyName>PPServer.DoService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DuplexCenter.cs" />
+    <Compile Include="DuplexDoService.cs" />
+    <Compile Include="FileDoService.cs" />
+    <Compile Include="InnerDoService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DoServiceBase.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="PublicDoService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PPServer.Config\PPServer.Config.csproj">
+      <Project>{94D0C68D-9D63-4B56-8E7D-651DC2FD62EE}</Project>
+      <Name>PPServer.Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PPServer.Interface\PPServer.Interface.csproj">
+      <Project>{1ADD8877-2F64-48A3-A60B-231C215BC586}</Project>
+      <Name>PPServer.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PPServer.Object\PPServer.Object.csproj">
+      <Project>{4CF9A761-EF86-4C64-8CA8-2E2355711A65}</Project>
+      <Name>PPServer.Object</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PPServer.Service\PPServer.Service.csproj">
+      <Project>{65F4AB75-098C-43D0-9214-726C97C19B0C}</Project>
+      <Name>PPServer.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

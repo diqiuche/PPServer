@@ -1,0 +1,12 @@
+D:\Code\PPServer\PPServer.Client\bin\Release\PPServer.Client.dll
+D:\Code\PPServer\PPServer.Client\bin\Release\PPServer.Client.pdb
+D:\Code\PPServer\PPServer.Client\bin\Release\PPServer.Object.dll
+D:\Code\PPServer\PPServer.Client\bin\Release\PPServer.Service.dll
+D:\Code\PPServer\PPServer.Client\bin\Release\ICSharpCode.SharpZipLib.dll
+D:\Code\PPServer\PPServer.Client\bin\Release\PPServer.Object.pdb
+D:\Code\PPServer\PPServer.Client\bin\Release\PPServer.Service.pdb
+D:\Code\PPServer\PPServer.Client\obj\Release\ResolveAssemblyReference.cache
+D:\Code\PPServer\PPServer.Client\obj\Release\PPServer.Client.dll
+D:\Code\PPServer\PPServer.Client\obj\Release\PPServer.Client.pdb
+D:\Code\PPServer\Release\PPServer.Client.dll
+D:\Code\PPServer\Release\PPServer.Client.pdb

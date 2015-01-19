@@ -1,0 +1,7 @@
+D:\Code\PPServer\PPServer.Interface\bin\Release\PPServer.Interface.dll
+D:\Code\PPServer\PPServer.Interface\bin\Release\PPServer.Interface.pdb
+D:\Code\PPServer\PPServer.Interface\obj\Release\ResolveAssemblyReference.cache
+D:\Code\PPServer\PPServer.Interface\obj\Release\PPServer.Interface.dll
+D:\Code\PPServer\PPServer.Interface\obj\Release\PPServer.Interface.pdb
+D:\Code\PPServer\Release\PPServer.Interface.dll
+D:\Code\PPServer\Release\PPServer.Interface.pdb

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0"?>
+<SchemaInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BaseInfo>
+    <Schema>
+      <SCHEMA_CODE>GH20131012021</SCHEMA_CODE>
+      <EXE_TYPE>0</EXE_TYPE>
+      <START_TIME>2013-10-12T08:00:00</START_TIME>
+      <END_TIME xsi:nil="true" />
+      <LOOP_TIMES>1</LOOP_TIMES>
+      <TOP_PERIOD>60</TOP_PERIOD>
+      <TIME_GAP>3</TIME_GAP>
+      <TASK_TYPE>1</TASK_TYPE>
+      <RES_TYPE>0</RES_TYPE>
+      <RES_CODE>G01</RES_CODE>
+      <FAC_CODE>BJ</FAC_CODE>
+      <STATUS>1</STATUS>
+      <CREATE_TIME>2013-10-12T16:58:53.546875+08:00</CREATE_TIME>
+      <STOP_TIME xsi:nil="true" />
+      <SEND_TIME xsi:nil="true" />
+      <ERROR_PLUS_ALG_CODE>ERROR_PLUS.DZLJ</ERROR_PLUS_ALG_CODE>
+      <TIMELAG_PLUS_ALG_CODE>TIMELAG_PLUS.DZLJ</TIMELAG_PLUS_ALG_CODE>
+    </Schema>
+    <SchemaLink>
+      <Node TaskTime="00:00" TimeStamp="0" Node="BJ" NodeCode="BJ" NodeTypeNum="CarFacility" NodeOrderNo="0" SimulateCode="" FrontLink="" NextLink="物理链路" ErrorValue="0.001" PlusErrorValue="0.001" TimeLag="0" PlusTimeLag="0" />
+      <Node TaskTime="00:03" TimeStamp="3" Node="I1-S" NodeCode="I1-S" NodeTypeNum="Satellite" NodeOrderNo="1" SimulateCode="" FrontLink="物理链路" NextLink="物理链路" ErrorValue="0.001" PlusErrorValue="0.002" TimeLag="0" PlusTimeLag="0" />
+      <Node TaskTime="00:06" TimeStamp="6" Node="BJ[G01]" NodeCode="BJ" NodeTypeNum="VirtualSatellite" NodeOrderNo="2" SimulateCode="G01" FrontLink="物理链路" NextLink="" ErrorValue="0.001" PlusErrorValue="0.003" TimeLag="0" PlusTimeLag="0" />
+    </SchemaLink>
+  </BaseInfo>
+  <SchemaData>
+    <Data Id="1" SourceRes="BJ" SourceOrderNo="0" DestinationRes="BJ[G01]" DestinationOrderNo="2" Count="1" Content="" />
+  </SchemaData>
+</SchemaInfo>
